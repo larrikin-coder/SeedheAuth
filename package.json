@@ -1,8 +1,23 @@
 {
+  "name": "seedhe-auth",
+  "version": "1.0.0",
+  "description": "Seedhe Authentication 😏 bcoz seedhe maut bajj raha hai ghar main subha se",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [
+    "auth",
+    "jwt",
+    "bcryptjs",
+    "google-oauth",
+    "github-oauth"
+  ],
+  "author": "larrikin-coder",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
     "cookie-session": "^2.1.1",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",

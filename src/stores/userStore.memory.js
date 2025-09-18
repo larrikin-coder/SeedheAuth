@@ -11,4 +11,4 @@ export class MemoryUserStore {
     this.users.set(user.username, user);
   }
 }
-z
+z;
