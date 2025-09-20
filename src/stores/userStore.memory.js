@@ -10,5 +10,4 @@ export class MemoryUserStore {
   async saveUser(user) {
     this.users.set(user.username, user);
   }
-}
-z;
+};

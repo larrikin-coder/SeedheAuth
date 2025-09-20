@@ -39,7 +39,7 @@ export function authRoutes(authService) {
   );
 
   router.get(
-    "/oauth/callback/google",
+    "/oauth/google/callback",
     passport.authenticate("google", {
       session: false,
       failureRedirect: "/auth/failure",
@@ -56,7 +56,7 @@ export function authRoutes(authService) {
   );
 
   router.get(
-    "/oauth/callback/github",
+    "/oauth/github/callback",
     passport.authenticate("github", {
       session: false,
       failureRedirect: "/auth/failure",
