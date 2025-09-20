@@ -22,7 +22,15 @@ export function authRoutes(authService) {
         req.body.username,
         req.body.password
       );
-      res.json(result);
+      // Set token in HttpOnly cookie
+      res
+        .cookie("token", result.token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "lax",
+          maxAge: 3600 * 1000,
+        })
+        .json({ message: "Logged in" });
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
@@ -39,13 +47,21 @@ export function authRoutes(authService) {
   );
 
   router.get(
-    "/oauth/google/callback",
+    "/google/callback",
     passport.authenticate("google", {
       session: false,
       failureRedirect: "/auth/failure",
     }),
     (req, res) => {
-      res.json({ token: req.user.token, profile: req.user.profile });
+      // set HttpOnly cookie and redirect to dashboard
+      res
+        .cookie("token", req.user.token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "lax",
+          maxAge: 3600 * 1000,
+        })
+        .redirect("/dashboard");
     }
   );
 
@@ -56,18 +72,25 @@ export function authRoutes(authService) {
   );
 
   router.get(
-    "/oauth/github/callback",
+    "/github/callback",
     passport.authenticate("github", {
       session: false,
       failureRedirect: "/auth/failure",
     }),
     (req, res) => {
-      res.json({ token: req.user.token, profile: req.user.profile });
+      res
+        .cookie("token", req.user.token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "lax",
+          maxAge: 3600 * 1000,
+        })
+        .redirect("/dashboard");
     }
   );
 
   router.get("/failure", (req, res) =>
-    res.status(401).json({ error: "OAuth failed" })
+    res.status(401).json({ error: "SeedheAuth failed" })
   );
 
   return router;

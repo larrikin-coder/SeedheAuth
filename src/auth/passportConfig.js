@@ -2,8 +2,14 @@ import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import { Strategy as GitHubStrategy } from "passport-github2";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
 
-const JWT_SECRET = process.env.JWT_SECRET
+
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET){
+  console.log("JWT_SECRET not available");
+}
 
 // Common callback after successful OAuth login
 function oauthCallback(accessToken, refreshToken, profile, done) {
