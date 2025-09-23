@@ -37,7 +37,7 @@ export function authRoutes(authService) {
   });
 
   router.get("/profile", authService.authenticateToken, (req, res) => {
-    res.json({ message: `Welcome ${req.user.username}!` });
+    res.json({ user:req.user});
   });
 
   // === Google OAuth ===
@@ -93,5 +93,7 @@ export function authRoutes(authService) {
     res.status(401).json({ error: "SeedheAuth failed" })
   );
 
+
+  
   return router;
 }

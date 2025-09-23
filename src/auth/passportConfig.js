@@ -13,15 +13,18 @@ if (!JWT_SECRET){
 
 // Common callback after successful OAuth login
 function oauthCallback(accessToken, refreshToken, profile, done) {
-  // Instead of storing in DB here, we pass user data to `done`
   const payload = {
     id: profile.id,
     provider: profile.provider,
     name: profile.displayName,
+    email: profile.emails?.[0]?.value || null, // ✅ correct
+    photo: profile.photos?.[0]?.value || null, // ✅ correct
   };
+
   const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" });
-  done(null, { token, profile });
+  done(null, { token, profile: payload });
 }
+
 
 export function setupPassport() {
   passport.use(

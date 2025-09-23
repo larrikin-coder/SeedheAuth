@@ -10,3 +10,4 @@ export async function initAuth() {
   const authService = new AuthService(userStore);
   return { authService, authRoutes: authRoutes(authService) };
 }
+
