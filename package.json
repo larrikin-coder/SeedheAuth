@@ -13,6 +13,14 @@
   ],
   "author": "larrikin-coder",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larrikin-coder/SeedheAuth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/larrikin-coder/SeedheAuth/issues"
+  },
+  "homepage": "https://github.com/larrikin-coder/SeedheAuth#readme",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
