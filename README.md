@@ -8,7 +8,7 @@ npm i seedhe-auth
 ```env
 PORT=5000 # your server port
 # Generate your JWT secret
-JWT_SECRET=ddeb598b6e1777a8840ff5f4cbace542cf88001dacbe0a669f9e8ad5f63ebb099536f3092b659d8227c3aa82147a366858e1b5ba5ec03b61aed1b587c247224a
+JWT_SECRET=your generated jwt secret
 
 DB_TYPE:"mongo"||"postgres" # default : "memory"
 
