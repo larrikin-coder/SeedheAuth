@@ -68,3 +68,5 @@ async function start(){
     });
 }
 ```
+[![npm version](https://img.shields.io/npm/v/seedhe-auth)](https://www.npmjs.com/package/seedhe-auth)
+[![npm downloads](https://img.shields.io/npm/dt/seedhe-auth)](https://www.npmjs.com/package/seedhe-auth)
